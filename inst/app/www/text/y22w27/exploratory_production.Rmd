@@ -1,0 +1,6 @@
+---
+output: md_document
+---
+
+The *new_construction* dataset provides net construction data aggregated annually by county. 
+As it is 'net total construction', the data also factors in any loss of housing, which is apparent when looking at Napa and Sonoma county during the 2017 wildfires, where the Total Production is in the negatives. Production numbers are also broken out to 3 categories: single-family production, multi-family production, and mobile home production.

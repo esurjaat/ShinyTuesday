@@ -7,6 +7,20 @@
 #' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options
+#' @import shinydashboard
+#' @import ggplot2
+#' @import tibble
+#' @import tidyr
+#' @import readr
+#' @import purrr
+#' @import dplyr
+#' @import stringr
+#' @import forcats
+#' @import ggthemes
+#' @import lubridate
+#' @import shinipsum
+#' @import tools
+
 run_app <- function(
   onStart = NULL,
   options = list(),

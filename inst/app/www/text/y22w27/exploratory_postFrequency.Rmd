@@ -1,0 +1,10 @@
+---
+output: md_document
+---
+
+Using the *rent* dataset, we can see when and how many posts were retrieved for a given area. As
+the scraping method relies on [the Wayback Machine](https://archive.org/web/), an internet archiving website, not all posts are accessible. The archiving also does not occur consistently, as well as not all records are retrievable for a certain date.  
+
+By plotting each post along the date x-axis and the county/neighborhood on the categorical y-axis, we can get a snapshot on how frequent the data was retrieved and for which areas.    
+
+This scatterplot uses 'jittering', which adds random noise for each point along the y-axis. This is done strictly for visual purposes to be able to see more of the points as well as setting the opacity low to see how dense certain areas are. 

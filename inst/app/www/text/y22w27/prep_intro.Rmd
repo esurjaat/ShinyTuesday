@@ -1,0 +1,16 @@
+---
+output: md_document
+---
+This week's data is all about SF Housing and Rentals. The github page for this can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-07-05). There are three datasets made available:
+
+  - **rent.csv**. Bay Area Rentals posts (via Craigslist) that dates back to 2000.
+
+  - **sf_permits.csv**. SF building permits.
+
+  - **new_construction.csv**. Yearly Bay Area net new housing construction.
+
+All data is first loaded from tidytuesday using the tidytuesdayR package before further cleaning.
+
+This data has been made available by [Kate Pennington](https://www.katepennington.org/data).
+
+Pennington, Kate (2018).  Raw Bay Area Craigslist Rental Housing Posts, 2000-2012. Retrieved from [https://github.com/katepennington/historic_bay_area_craigslist_housing_posts/blob/master/raw_2000_2012.csv.zip]

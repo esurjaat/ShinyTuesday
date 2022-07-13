@@ -1,0 +1,39 @@
+---
+output: md_document
+---
+
+The *sf_permits* data lists all building permits for San Francisco dating back to 2000. 
+All permits are listed regardless of status (e.g. expired, complete). The data seems mostly complete 
+without and missing block and lot data as well as permit type and status.
+
+To clean this data I only changed a number of variables from character to factor and 
+some variables from numeric to character. The variable *status_concise* was added to simplify 
+the status variable, boiling down the 16 various statuses down to three: approved, 
+rejected, and pending.
+
+
+```{r prep, results = 'asis', eval = FALSE}
+# Libraries
+library(tidyverse)
+library(tidytuesdayR)
+
+
+# Load via github
+tuesdata <- tidytuesdayR::tt_load(x = "2022-07-05")
+
+# SF Permits
+sf_permits <-
+  tuesdata$sf_permits %>%
+  mutate(
+    across(.cols = c(permit_type, existing_construction_type, proposed_construction_type),
+           .fns = ~factor(.x)),
+    across(.cols = c(permit_number, zipcode, record_id), .fns = ~as.character(.x)),
+    status_concise = case_when(
+      status %in% c("appeal", "issued", "issuing", "plancheck",
+                    "reinstated", "filed") ~ "pending",
+      status %in% c("approved", "complete") ~ "approved",
+      status %in% c("cancelled", "denied", "disapproved", "expired",
+                    "overruled", "revoked", "suspend", "withdrawn") ~ "rejected",
+      TRUE ~ "Other"
+    ))
+```

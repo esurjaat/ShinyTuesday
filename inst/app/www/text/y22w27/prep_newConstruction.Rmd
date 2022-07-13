@@ -1,0 +1,28 @@
+---
+output: md_document
+---
+There was not much documentation on this dataset. I could not seem to find the data through the [VitalSigns]() link provided. Taking a closer look at the cleaning script provided on the [tidytuesday github post](), it seems to refer to a different url that is blocked behind a subscription paywall (carto.com). The latter seems to be the api used to initially download this data, while the former is a summary based on this data.
+
+To clean the data, I removed *the_geom* and *the_geom_webmercator* columns as they only contained NA values.  The *county* column values all ended with "County", which I've removed due to redundancy and have transformed it into a factor. The *year* column was left as a numeric, which I've transformed to a date (using Jan 1 as the default).
+
+```{r prep, results = 'asis', eval = FALSE}
+# Libraries
+library(tidyverse)
+library(lubridate)
+library(tidytuesdayR)
+
+# Load via github
+tuesdata <- tidytuesdayR::tt_load(x = "2022-07-05")
+
+# New Construction
+new_construction <-
+  tuesdata$new_construction %>%
+  mutate(
+    county =
+      county %>%
+      str_replace(" County$", "") %>%
+      forcats::as_factor(),
+    year = paste0(year,"0101") %>% ymd()
+    ) %>%
+  select(-c(the_geom, the_geom_webmercator))
+```

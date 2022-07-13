@@ -1,0 +1,31 @@
+---
+output: md_document
+---
+
+This dataset comes from Craigslist posts for Bay Area rentals. To get historical data Kate Pennington utilized [the Wayback Machine](https://archive.org/web/), and scraped the archived Craigslist posts.  
+
+To further clean the dataset, I converted the date variable to a date from a numeric. I found the post_id contained the unique ID number as well as a categorical value of "pre2013", which I've separated out.
+
+After looking through the dataset, it seems that most listings do not have the address and/or the lat/lon included.  It seems that we will have to rely on the neighborhood (nhood), city and county variables to determine the rental location.
+
+```{r prep, results='asis', eval=FALSE}
+# Libraries
+library(tidyverse)
+library(lubridate)
+library(tidytuesdayR)
+
+
+# Load via github
+tuesdata <- tidytuesdayR::tt_load(x = "2022-07-05")
+
+# SF Rent
+rent <-
+  tuesdata$rent %>%
+  mutate(date = ymd(date),
+         era = case_when(
+           post_id %>% str_detect("^pre2013") ~ "Pre-2013",
+           TRUE ~ "Post-2013"),
+         id = post_id %>% str_replace("^pre2013_", "")) %>%
+  select(id, era, everything(), -post_id) %>%
+  arrange(date, nhood, city, county)
+```
