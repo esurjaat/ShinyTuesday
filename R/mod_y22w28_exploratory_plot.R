@@ -53,7 +53,7 @@ mod_y22w28_exploratory_plot_server <- function(id, inputs){
             pivot_wider(names_from = year, values_from = flights) %>%
             set_names(c("apt_icao", "airport_name", "country", "from", "to")) %>%
             mutate(perc_change = (to - from)/ from) %>%
-            left_join(temp, by = "apt_icao") %>%
+            left_join(y22w28$coordinates, by = "apt_icao") %>%
             filter(!is.na(latitude))
         } else if(inputs$comparison_type() == "Quarterly"){
           y22w28$flights %>%
@@ -71,7 +71,7 @@ mod_y22w28_exploratory_plot_server <- function(id, inputs){
             pivot_wider(names_from = year, values_from = flights) %>%
             set_names(c("apt_icao", "airport_name", "country", "from", "to")) %>%
             mutate(perc_change = (to - from)/ from) %>%
-            left_join(temp, by = "apt_icao") %>%
+            left_join(y22w28$coordinates, by = "apt_icao") %>%
             filter(!is.na(latitude))
         } else if(inputs$comparison_type() == "Monthly"){
           y22w28$flights %>%
@@ -84,7 +84,7 @@ mod_y22w28_exploratory_plot_server <- function(id, inputs){
             pivot_wider(names_from = year, values_from = flights) %>%
             set_names(c("apt_icao", "airport_name", "country", "from", "to")) %>%
             mutate(perc_change = (to - from)/ from) %>%
-            left_join(temp, by = "apt_icao") %>%
+            left_join(y22w28$coordinates, by = "apt_icao") %>%
             filter(!is.na(latitude))
         }
       })
