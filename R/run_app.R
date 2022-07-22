@@ -20,6 +20,11 @@
 #' @import lubridate
 #' @import shinipsum
 #' @import tools
+#' @import janitor
+#' @import rvest
+#' @import leaflet
+#' @import ggmap
+#' @import glue
 
 run_app <- function(
   onStart = NULL,
