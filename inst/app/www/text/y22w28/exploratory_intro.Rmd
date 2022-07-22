@@ -1,0 +1,12 @@
+---
+output: md_document
+---
+
+This week I've put together a map of the provided European airports using the leaflet package. Each point represents an airport, where the details can be brought up by clicking on these points. This map focuses on the percentage change of overall flight traffic to and from the airport. The shades of red represent % decreases, while the shades of green represent % increases as seen on the map legend.  
+
+Below the map are inputs that slice the data multiple ways. Pick two years to compare, then within those years you can focus on the month, quarter, or annual variations.  
+
+map navigation shortcuts:
+  - **Shift + Mouse-Drag:** Zoom-In on Designated Area  
+  - **Double-Click:** Zoom-In  
+  - **Shift + Double-Click:** Zoom-Out

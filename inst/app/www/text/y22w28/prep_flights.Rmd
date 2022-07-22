@@ -1,0 +1,22 @@
+---
+output: md_document
+---
+
+The **flights** data is aggregated by the number of flights (broken out by 'departing', 'arriving' & 'total') by day per airport. The data dates back to 2016, but not all airports have flight traffic data that goes back that far.  As the data is clean already, all I have done to this data frame is clean up the column names using the *janitor* package.
+
+```{r prep_flights, results='asis', eval=FALSE}
+# Libraries
+library(tidyverse)
+library(tidytuesdayR)
+library(janitor)
+
+# Load via Github
+tuesday <-
+  "2022-07-12" %>%
+  tidytuesdayR::tt_load()
+
+# Euro Flights
+flights <-
+  tuesday$flights %>%
+  janitor::clean_names()
+```

@@ -1,0 +1,12 @@
+---
+output: md_document
+---
+This week's data is a summary of European Airport Traffic, made available by [Eurocontrol](https://ansperformance.eu/data/).. The github page for this week can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-07-12).
+
+Although there is only one dataset made available, I have personally scraped wikipedia.org to create another data set for this week:
+
+  - **flights**.  European Air Traffic data.
+  
+  - **coordinates**. Personally scraped data from Wikipedia to obtain the airport geographic coordinates.
+
+Tidytuesday data was first loaded using the tidytuesdayR package before further cleaning.
