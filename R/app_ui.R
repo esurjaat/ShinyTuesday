@@ -16,6 +16,7 @@ app_ui <- function(request) {
           menuItem(text = "About",
                    tabName = "about",
                    icon = icon("info-sign", lib = "glyphicon")),
+          mod_2022_week28_ui("2022_week28_1")$sidebar,
           mod_2022_week27_ui("2022_week27_1")$sidebar
         )
       ),
@@ -24,6 +25,9 @@ app_ui <- function(request) {
           # About
           tabItem(tabName = "about",
                   mod_about_ui("about_1")),
+          # 2022 Week 28
+          mod_2022_week28_ui("2022_week28_1")$prep,
+          mod_2022_week28_ui("2022_week28_1")$exploratory,
           # 2022 Week 27
           mod_2022_week27_ui("2022_week27_1")$prep,
           mod_2022_week27_ui("2022_week27_1")$exploratory
